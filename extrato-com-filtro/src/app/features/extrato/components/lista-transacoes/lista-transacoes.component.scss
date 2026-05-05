@@ -1,0 +1,86 @@
+.lista-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .transacao-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 16px;
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: scale(1.01);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .info-lado-esquerdo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .icone {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        font-size: 1.4rem;
+      }
+
+      .detalhes {
+        display: flex;
+        flex-direction: column;
+
+        .descricao {
+          margin: 0;
+          font-weight: 600;
+          color: #f1f1f1;
+          font-size: 0.95rem;
+        }
+
+        .data {
+          font-size: 0.8rem;
+          color: #888;
+        }
+      }
+    }
+
+    .valor {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    // Classe dinâmica injetada pelo [class.entrada]
+    &.entrada {
+      .valor {
+        color: #00ff88; // Verde Neon
+        &::before { content: '+ '; }
+      }
+    }
+
+    &:not(.entrada) {
+      .valor {
+        color: #f8f9fa; // Branco/Cinza para saídas (mais elegante que vermelho puro)
+      }
+    }
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    border: 2px dashed #222;
+    border-radius: 20px;
+  }
+}

@@ -1,0 +1,18 @@
+<div class="filtros-container">
+  <div class="busca-wrapper">
+    <span class="lupa">🔍</span>
+    <input 
+      type="text" 
+      placeholder="Pesquisar por descrição..." 
+      (input)="onInput($event)"
+    >
+  </div>
+
+  <div class="select-wrapper">
+    <select (change)="onSelect($event)">
+      <option value="TODOS">Todos os tipos</option>
+      <option value="ENTRADA">Apenas Entradas</option>
+      <option value="SAIDA">Apenas Saídas</option>
+    </select>
+  </div>
+</div>

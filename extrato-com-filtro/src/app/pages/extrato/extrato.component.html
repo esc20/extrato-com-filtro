@@ -1,0 +1,14 @@
+<div class="extrato-layout">
+  <header>
+    <h1>Atividade Recente</h1>
+  </header>
+
+  <!-- 1. Adicione o componente de filtros e conecte aos Signals -->
+  <app-filtros 
+    (aoMudarBusca)="termoBusca.set($event)"
+    (aoMudarTipo)="tipoFiltro.set($event)">
+  </app-filtros>
+
+  <!-- 2. USE O SIGNAL FILTRADO AQUI (com os parênteses) -->
+  <app-lista-transacoes [transacoes]="transacoesFiltradas()"></app-lista-transacoes>
+</div>
