@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   background: #FAF9F6; 
-  border-radius: 4px; // Rigor Institucional (Bordas Retas)
+  border-radius: 4px; 
   padding: 8px 24px;
-  border: 1px solid #C0C0C0; // Linha de Prata Escovada
+  border: 1px solid #C0C0C0; 
   box-shadow: 0 4px 12px rgba(45, 41, 38, 0.02);
 
   .transacao-item {
@@ -27,14 +27,14 @@
       
       .icone {
         transform: scale(1.05);
-        border-color: #8C6D3F; // Bronze sutil no hover
+        border-color: #8C6D3F; 
       }
     }
 
     .info-lado-esquerdo {
       display: flex;
       align-items: center;
-      gap: 16px; // Espaço para o novo ícone
+      gap: 16px; 
 
       .icone {
         width: 40px;
@@ -42,17 +42,17 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #E5E1D8; // Cinza Prata claro
-        color: #797670;      // Cinza Ébano escuro
+        background: #E5E1D8; 
+        color: #797670;     
         border: 1px solid transparent;
-        border-radius: 4px;  // Seguindo o padrão reto
+        border-radius: 4px;  
         padding: 8px;
         transition: all 0.3s ease;
 
         ::ng-deep svg {
           width: 20px;
           height: 20px;
-          stroke-width: 1.5; // Linha fina igual ao título
+          stroke-width: 1.5; 
         }
       }
 
@@ -94,7 +94,7 @@
     &.entrada {
       .icone {
         background: #E8DFCC; 
-        color: #8C6D3F; // Bronze para Entradas
+        color: #8C6D3F; 
       }
       .valor {
         color: #8C6D3F; 

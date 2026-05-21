@@ -10,7 +10,6 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ResumoSaldoComponent {
-  // Inputs usando a nova sintaxe de Signals do Angular 19
   saldo = input<number>(0);
   entradas = input<number>(0);
   saidas = input<number>(0);

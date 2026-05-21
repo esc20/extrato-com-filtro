@@ -1,6 +1,6 @@
 import { Component, input, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser'; // Para renderizar o SVG com segurança
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser'; 
 import { Transacao } from '../../../../core/models/transacao.model';
 
 @Component({

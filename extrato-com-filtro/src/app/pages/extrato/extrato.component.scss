@@ -10,17 +10,16 @@
     margin-bottom: 32px;
 
     h1 {
-      // ... suas configurações atuais
       display: inline-block;
-      width: 100%; // Garante que o gradiente se estenda
+      width: 100%; 
       background: linear-gradient(135deg, #1c1917 0%, #d4af37 50%, #1c1917 100%);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
 
-      // Ajuste para telas pequenas
+      
       @media (max-width: 480px) {
-        font-size: 1.8rem; // Diminuímos um pouco para não quebrar linha feio
+        font-size: 1.8rem;
         letter-spacing: 1px;
       }
     }

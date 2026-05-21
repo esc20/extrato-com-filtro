@@ -8,7 +8,6 @@ import { Component, output, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FiltrosComponent {
-  // Emitindo as strings para o ExtratoComponent (Pai)
   aoMudarBusca = output<string>();
   aoMudarTipo = output<string>();
 

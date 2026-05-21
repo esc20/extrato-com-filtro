@@ -2,7 +2,6 @@
   @for (item of transacoes(); track item.id) {
     <div class="transacao-item" [class.entrada]="item.tipo === 'ENTRADA'">
       <div class="info-lado-esquerdo">
-        <!-- Novo sistema de ícones injetando o SVG profissional -->
         <div class="icone" [innerHTML]="getIcon(item.categoria)"></div>
         
         <div class="detalhes">
