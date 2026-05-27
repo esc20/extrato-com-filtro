@@ -6,7 +6,7 @@ Plataforma digital para auditoria de lançamentos e monitoramento de fluxo de ca
 
 ## Demonstração Visual
 
-[GIF demonstrativo em desenvolvimento - Será adicionado na próxima atualização do repositório]
+![Interface do Simulador](extrato-com-filtro/assets/extrato-com-filtro.gif)
 
 ---
 
