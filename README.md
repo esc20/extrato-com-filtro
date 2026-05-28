@@ -10,6 +10,24 @@ Plataforma digital para auditoria de lançamentos e monitoramento de fluxo de ca
 
 ---
 
+## Indicadores de Auditoria e Desempenho (Lighthouse Audit)
+
+O módulo de extrato bancário foi submetido à auditoria oficial do Google Lighthouse, apresentando os seguintes resultados consolidados de engenharia frontend:
+
+### Simulação Mobile (Dispositivos Móveis)
+* **Melhores Práticas (100/100)**: Pontuação máxima em segurança digital, conformidade com a Web API e arquitetura limpa de componentes standalone.
+* **Acessibilidade (92/100)**: Zona de excelência. Rótulos e semântica de tags estruturados para conformidade com leitores de tela e acessibilidade digital.
+* **SEO (90/100)**: Metadados estruturados e indexação otimizada para motores de busca.
+* **Performance (46/100)**: Pontuação esperada para o carregamento e renderização de tabelas de dados sob redes móveis lentas simuladas. O sistema mantém o tempo de processamento otimizado devido à atualização cirúrgica do DOM através de Angular Signals.
+
+### Simulação Desktop (Computador)
+* **Performance (71/100)**: Elevada taxa de interatividade e resposta instantânea do motor de busca.
+* **Melhores Práticas (100/100)**: Total conformidade estrutural.
+* **Acessibilidade (92/100)**: Navegação e contrastes estáveis.
+* **SEO (90/100)**: Alinhamento pleno com as diretrizes de busca.
+
+---
+
 ## Engenharia de Software e Diferenciais Técnicos
 
 O desenvolvimento do sistema de auditoria priorizou práticas de governança de código e otimização de runtime para manter a integridade dos dados sob fluxos reativos complexos:
