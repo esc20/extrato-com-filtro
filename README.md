@@ -1,83 +1,79 @@
-# Módulo Reativo de Extrato Financeiro com Filtros Dinâmicos
+# APEX INVEST
+## Simulador Reativo de Evolução Patrimonial
 
-Plataforma digital para auditoria de lançamentos e monitoramento de fluxo de caixa corporativo desenvolvida com Angular. A aplicação adota a arquitetura de App Shell para renderização modular e desacoplada, utilizando a engine de reatividade nativa do framework baseada em Signals e Computed States para processamento e filtragem de grandes volumes de transações em tempo real.
+Plataforma digital para simulação, projeção estatística e auditoria de juros compostos desenvolvida com Angular 18+. A aplicação utiliza o sistema de formulários reativos para calcular a evolução do dinheiro em tempo real. Os dados são distribuídos de forma automática para painéis de resumo, gráficos interativos com Chart.js e tabelas organizadas.
 
 ---
 
-## Demonstração Visual
+### DEMONSTRAÇÃO VISUAL
 
 ![Interface do Simulador](extrato-com-filtro/assets/extrato-com-filtro.gif)
 
 ---
 
-## Indicadores de Auditoria e Desempenho (Lighthouse Audit)
+### DESEMPENHO REAL
+#### Indicadores de Auditoria Google Lighthouse
 
-O módulo de extrato bancário foi submetido à auditoria oficial do Google Lighthouse, apresentando os seguintes resultados consolidados de engenharia frontend:
+O simulador passou pela avaliação do Google Lighthouse na simulação para dispositivos móveis, apresentando os seguintes resultados oficiais:
 
-### Simulação Mobile (Dispositivos Móveis)
-* **Melhores Práticas (100/100)**: Pontuação máxima em segurança digital, conformidade com a Web API e arquitetura limpa de componentes standalone.
-* **Acessibilidade (92/100)**: Zona de excelência. Rótulos e semântica de tags estruturados para conformidade com leitores de tela e acessibilidade digital.
-* **SEO (90/100)**: Metadados estruturados e indexação otimizada para motores de busca.
-* **Performance (46/100)**: Pontuação esperada para o carregamento e renderização de tabelas de dados sob redes móveis lentas simuladas. O sistema mantém o tempo de processamento otimizado devido à atualização cirúrgica do DOM através de Angular Signals.
-
-### Simulação Desktop (Computador)
-* **Performance (71/100)**: Elevada taxa de interatividade e resposta instantânea do motor de busca.
-* **Melhores Práticas (100/100)**: Total conformidade estrutural.
-* **Acessibilidade (92/100)**: Navegação e contrastes estáveis.
-* **SEO (90/100)**: Alinhamento pleno com as diretrizes de busca.
+*   **Melhores Práticas (100/100)**: Pontuação máxima. O código cumpre todas as diretrizes modernas de segurança e uso de pacotes estáveis.
+*   **Acessibilidade (95/100)**: Zona de excelência. Uso correto de etiquetas acessíveis e calibração de contraste para leitura confortável.
+*   **SEO (90/100)**: Estrutura otimizada com indexação correta de tags para motores de busca.
+*   **Performance (45/100 Mobile)**: Gráficos exigem mais processamento para desenhar na tela em celulares lentos. Para resolver isso, o projeto usa o recurso moderno `@defer` do Angular. O motor do gráfico só é baixado e ativado quando aparece na tela do usuário, economizando internet e memória.
 
 ---
 
-## Engenharia de Software e Diferenciais Técnicos
+### ENGENHARIA DE SOFTWARE
+#### Diferenciais Técnicos e Arquitetura
 
-O desenvolvimento do sistema de auditoria priorizou práticas de governança de código e otimização de runtime para manter a integridade dos dados sob fluxos reativos complexos:
+> O desenvolvimento do simulador financeiro focou na separação clara entre os cálculos matemáticos e a tela, garantindo velocidade, segurança e atualização instantânea.
 
-* **Computação e Filtragem Combinada por Estados Derivados (Computed Signals)**: O mecanismo de cruzamento de dados intercepta três fontes de Signals independentes (registros originais, termos textuais da busca e chaves seletoras de tipo). Através do construtor funcional `computed`, o sistema unifica esses estados e calcula a matriz filtrada final exclusivamente quando ocorre mutação direta nas entradas, otimizando o consumo de CPU.
-* **Mecanismos de Programação Defensiva contra Falhas de Runtime**: A esteira de processamento implementa sanitizações preventivas e checagens lógicas nas propriedades de payloads externos. Ao forçar a conversão automática para coleções vazias (`|| []`) e validar a existência de strings antes de invocar métodos de normalização de caixa (`toLowerCase`), o sistema blinda o runtime contra quebras provocadas por dados indefinidos ou corrompidos de servidores de API.
-* **Identidade Visual Corporativa e Tipografia Avançada**: A folha de estilos adota propriedades de mascaramento vetorial avançado (`background-clip: text`) integradas a gradientes cromáticos lineares para estilização de títulos. O design corporativo é reforçado pelo uso de geometrias retas (`border-radius: 4px`), linhas de separação em prata escovada e distribuições espaciais baseadas em CSS Grid assimétrico, elevando o rigor institucional da interface.
-* **Isolamento de Estado Estático via Estratégias Passivas**: O componente de exibição de saldos adota de forma estrita o `ChangeDetectionStrategy.OnPush` casado com os novos inputs reativos baseados em Signals. Esta modelagem desvincula o widget de verificações de ciclo de vida desnecessárias e globais do framework, forçando a reavaliação de layout exclusivamente quando as propriedades de saldo, entradas ou saídas sofrem mutação direta.
+*   **Centralização de Dados por Fonte Única**
+    O componente principal gerencia todo o estado das projeções através de Angular Signals. Quando o usuário digita novos valores no formulário, o sistema calcula tudo e espalha o resultado para todos os painéis e gráficos ao mesmo tempo. Isso garante que a tela nunca mostre dados desalinhados.
 
----
+*   **Isolamento de Regras de Negócio e Matemática Financeira**
+    Toda a inteligência de cálculo fica guardada em um serviço isolado. O motor recebe a taxa de juros anual digitada pelo usuário e faz a conversão matemática exata para a taxa mensal através de fórmulas financeiras precisas, garantindo que as contas de juros compostos fiquem perfeitas mês a mês.
 
-## Estrutura Funcional e Componentização
+*   **Sincronismo para Motores Gráficos e Telas**
+    Para evitar que o gráfico tente desenhar antes da tela carregar por completo, o sistema usa uma rotina de tempo curta (`setTimeout`). Isso joga o carregamento do gráfico para o momento exato em que o espaço visual do Canvas está pronto no navegador, evitando erros de carregamento e travamentos de memória.
 
-A aplicação divide suas responsabilidades em unidades modulares de apresentação e inteligência de negócio:
-
-* **Extrato Component**: Componente orquestrador responsável pela ingestão de dados via serviços, gerenciamento do estado reativo global e distribuição dos fluxos filtrados.
-* **Filtros Component**: Widget autônomo (Dumb Component) dedicado à interceptação de inputs textuais e seleções de categoria, utilizando a API `output<string>()` para comunicação unidirecional ascendente.
-* **Lista Transações Component**: Painel contábil encarregado da renderização de lançamentos utilizando a nova diretiva estrutural `@for` combinada com o gatilho de tratamento de listas vazias `@empty`.
-* **Resumo Saldo Component**: Módulo de balanço patrimonial responsável pelo processamento de fluxos de caixa e realces cromáticos para saldos líquidos negativos ou positivos.
+*   **Tabelas Longas com Cabeçalho Fixo (Sticky Headers)**
+    Como a simulação pode chegar a até 360 meses (30 anos), a tabela de resultados fica bem longa. O visual foi configurado via CSS com a propriedade `position: sticky`. Isso faz com que os números deslizem por baixo dos títulos ao rolar a página, mantendo a leitura fácil e organizada.
 
 ---
 
-## Tecnologias e Recursos Utilizados
+### ESTRUTURA FUNCIONAL
+#### Componentização e Responsabilidades
 
-* **Angular**: Standalone Components, Signals de Reatividade Granular, Computed States e Controle de Fluxo Nativo.
-* **TypeScript**: Controle estrito de contratos de tipos e tipagens defensivas.
-* **SCSS Comercial**: Uso de mixins de profundidade, seletores `:host`, variáveis nativas, propriedades de mascaramento de texto e animações de interpolação linear (`keyframes`).
-* **Web APIs**: Mecanismos nativos de vetorização SVG injetados com segurança através da API `DomSanitizer` do framework.
+A aplicação divide suas tarefas em blocos menores e organizados:
 
----
-
-## Fluxo Interno de Processamento de Filtros (Data Pipeline)
-
-A esteira de transformação de dados computa as buscas através do seguinte fluxo sequencial:
-1. Captura reativa de mutações nos inputs de pesquisa e seleção na camada visual.
-2. Normalização de strings via tratamento de espaçamentos periféricos (`.trim()`) e caixa baixa (`.toLowerCase()`).
-3. Avaliação de correspondência textual e categorização tipográfica concorrentes sobre o array imutável de transações.
-4. Despacho automatizado do vetor resultante para renderização granular das linhas no DOM.
+*   **Home Component**: Tela principal que guarda as informações centrais do site e organiza a distribuição dos painéis.
+*   **Formulario Component**: Bloco de captura e validação dos dados financeiros digitados pelo usuário, salvando as preferências no navegador com LocalStorage.
+*   **Resultado Cards Component**: Módulo responsável por mostrar o resumo do dinheiro (total acumulado, valor investido e juros ganhos).
+*   **Insights Component**: Painel analítico que calcula de forma inteligente a eficiência dos juros no patrimônio do usuário.
+*   **Grafico Evolucao Component**: Gráfico de linhas com curvas suavizadas que se ajusta ao tamanho da tela.
+*   **Tabela Evolucao Component**: Lista detalhada que exibe o crescimento do dinheiro linha por linha com formatação de moeda local.
 
 ---
 
-## Instruções para Execução do Projeto
+### TECNOLOGIAS E RECURSOS UTILIZADOS
 
-A aplicação necessita do ecossistema Node.js instalado no ambiente de desenvolvimento local:
+*   **Angular 18+**: Componentes independentes (*Standalone*), formulários reativos, gerenciamento de estado granular com Signals e controle de fluxo moderno.
+*   **TypeScript**: Definição rígida de tipos e modelos de dados para garantir que nenhuma informação inválida entre no cálculo.
+*   **Chart.js**: Biblioteca focada na criação e renderização de gráficos interativos de alta performance.
+*   **SCSS Avançado**: Configurações de design moderno com controle de espaçamento e adaptação completa para celulares e computadores.
+
+---
+
+### COMO EXECUTAR O PROJETO
+
+A aplicação necessita do ambiente Node.js instalado no seu computador:
 
 1. Clone o repositório utilizando o comando:
    ```bash
    git clone https://github.com
    ```
-2. Instale as dependências e pacotes de desenvolvimento estruturais do projeto:
+2. Instale todas as dependências e pacotes de desenvolvimento:
    ```bash
    npm install
    ```
@@ -85,4 +81,4 @@ A aplicação necessita do ecossistema Node.js instalado no ambiente de desenvol
    ```bash
    ng serve
    ```
-4. Acesse o sistema através do endereço fornecido pelo compilador em seu navegador local: `http://localhost:4200`
+4. Abra o seu navegador de internet e acesse o endereço padrão: `http://localhost:4200`
