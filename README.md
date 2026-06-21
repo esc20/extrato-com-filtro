@@ -66,6 +66,6 @@ A aplicação divide suas tarefas em blocos menores e organizados:
 ---
 
 
-## Site Extrato-com-filtro
+## Site EXTRARTO-COM-FILTRO
 
 [Clique aqui para acessar o projeto online](https://extrato-com-filtro-e7gp.vercel.app/)
