@@ -65,20 +65,7 @@ A aplicação divide suas tarefas em blocos menores e organizados:
 
 ---
 
-### COMO EXECUTAR O PROJETO
 
-A aplicação necessita do ambiente Node.js instalado no seu computador:
+## Site Extrato-com-filtro
 
-1. Clone o repositório utilizando o comando:
-   ```bash
-   git clone https://github.com
-   ```
-2. Instale todas as dependências e pacotes de desenvolvimento:
-   ```bash
-   npm install
-   ```
-3. Inicialize o servidor de desenvolvimento local:
-   ```bash
-   ng serve
-   ```
-4. Abra o seu navegador de internet e acesse o endereço padrão: `http://localhost:4200`
+[Clique aqui para acessar o projeto online](https://extrato-com-filtro-e7gp.vercel.app/)
